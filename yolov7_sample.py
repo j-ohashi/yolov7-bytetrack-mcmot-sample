@@ -136,6 +136,13 @@ def main():
         # Object Detection
         bboxes, scores, class_ids = yolov7_detector(frame)
 
+        if class_ids is None:
+            class_ids = []
+        if scores is None:
+            scores = []
+        if bboxes is None:
+            bboxes = []
+
         # Multi Object Tracking
         t_ids, t_bboxes, t_scores, t_class_ids = tracker(
             frame,
